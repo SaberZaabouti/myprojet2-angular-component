@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
 
 
 
@@ -11,13 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductsService } from './services/products.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-
-const routes = [
-  {path : 'list', component : ProductsListComponent},
-  {path : 'welcome', component : WelcomeComponent},
-  {path : '', redirectTo: 'welcome', pathMatch: 'full'},
- {path : '**', component : NotFoundComponent}
-];
+import { AppRoutingModule } from './routingModules/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +23,7 @@ const routes = [
   ],
   imports: [
     BrowserModule, // bootsraper l'application dans navigateur web
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [
     ProductsService // service pour tous les composants
